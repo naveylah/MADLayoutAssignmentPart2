@@ -5,11 +5,14 @@ class gridTwo extends StatefulWidget {
   _gridTwoState createState() => _gridTwoState();
 }
 
-final formKey = GlobalKey<FormState>();
-bool _status = false;
-bool _isSwitched = false;
-
 class _gridTwoState extends State<gridTwo> {
+  String _status = 'off';
+  changeText() {
+    setState(() {
+      _status = 'on';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,70 +21,76 @@ class _gridTwoState extends State<gridTwo> {
       Container(
         margin: EdgeInsets.all(10.0),
         child: Card(
-          elevation: 10.0,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+          elevation: 10.0,
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                SizedBox(height: 5.0),
-                IconButton(
-                    icon: Icon(Icons.analytics_outlined),
-                    iconSize: 70.0,
-                    onPressed: () {
-                      setState(() {
-                        _status = true;
-                      });
-                    }),
-                Text(
-                  "Fan",
-                  style: TextStyle(fontSize: 20),
+                Row(
+                  children: <Widget>[
+                    IconButton(
+                        icon: Icon(Icons.lightbulb_outline_rounded),
+                        iconSize: 70.0,
+                        onPressed: () => changeText()),
+                    IconButton(
+                        icon: Icon(Icons.power_settings_new_outlined),
+                        iconSize: 20.0,
+                        onPressed: () => changeText()),
+                  ],
                 ),
-                Text("status: $_status")
-              ]),
-        ),
-      ),
-      Container(
-        margin: EdgeInsets.all(10.0),
-        child: Card(
-          elevation: 10.0,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(height: 5.0),
-                IconButton(
-                    icon: Icon(Icons.analytics_outlined),
-                    onPressed: () {
-                      setState(() {
-                        _status = true;
-                      });
-                    }),
-                Text("status: $_status")
-              ]),
-        ),
-      ),
-      Container(
-        margin: EdgeInsets.all(10.0),
-        child: Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-          elevation: 10.0,
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(height: 5.0),
-                IconButton(
-                    icon: Icon(Icons.analytics_outlined),
-                    onPressed: () {
-                      setState(() {
-                        _status = true;
-                      });
+                Container(
+                  child: Text(
+                    "Light",
+                    style: TextStyle(fontSize: 15),
+                  ),
+                ),
+                Container(
+                  child: Text(
+                    "$_status",
+                    style: TextStyle(fontSize: 7),
+                  ),
 
-                      formKey.currentState.reset();
-                    }),
-                Text("status: $_status")
+                  //Text()
+                )
+              ]),
+        ),
+      ),
+      Container(
+        margin: EdgeInsets.all(10.0),
+        child: Card(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+          elevation: 10.0,
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    IconButton(
+                        icon: Icon(Icons.wash_outlined),
+                        iconSize: 70.0,
+                        onPressed: () => changeText()),
+                    IconButton(
+                        icon: Icon(Icons.power_settings_new_outlined),
+                        iconSize: 20.0,
+                        onPressed: () => changeText()),
+                  ],
+                ),
+                Container(
+                  child: Text(
+                    "Restroom",
+                    style: TextStyle(fontSize: 15),
+                  ),
+                ),
+                Container(
+                  child: Text(
+                    "$_status",
+                    style: TextStyle(fontSize: 7),
+                  ),
+
+                  //Text()
+                )
               ]),
         ),
       ),
