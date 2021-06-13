@@ -2,6 +2,7 @@
 
 MAD Assignment
 Part 1: https://github.com/naveylah/MADLayoutAssignmentPart1/
+
 Part 2: https://github.com/naveylah/MADlayoutAssignmentPart2/
 
 
